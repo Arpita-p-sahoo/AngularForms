@@ -1,0 +1,15 @@
+<form [formGroup]="userForm" action="">
+    <div class="col-12" formArrayName="phoneNumbers">
+        @for (phone of phoneNumbers.controls; track phone; let i = $index) {
+            <!-- <input [formControlName]="i" placeholder="Phone {{ i + 1 }}" /> -->
+            <div class="container mx-auto px-4">
+                <label for="visitors" class="block mb-2.5 text-sm font-medium text-heading">Phone Number {{i+1}}</label>
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="pushToFormArray()">
+                    Button
+                  </button>
+                  
+                <input type="text" id="visitors" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body" [formControlName]="i" placeholder="Phone {{ i + 1 }}"  />
+            </div>
+        }
+    </div>
+</form>
