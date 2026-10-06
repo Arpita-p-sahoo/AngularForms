@@ -1,0 +1,72 @@
+<div class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+<form class="w-full max-w-md bg-white p-8 rounded-xl shadow-md" [formGroup]="employeeRegForm" (ngSubmit)="SubmitEmployee()">
+    <div class="relative z-0 w-full mb-5 group">
+        <input formControlName="email" type="email" name="floating_email" id="floating_email" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+        <label for="floating_email" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Email address</label>
+        @if (employeeRegForm.controls.email.invalid && employeeRegForm.controls.email.touched) {
+          @if (employeeRegForm.controls.email.hasError('required')) {
+            <p class="mt-1 text-xs text-red-600">Email is required.</p>
+          }
+        }
+    </div>
+    <div class="relative z-0 w-full mb-5 group">
+        <input formControlName="password" type="password" name="floating_password" id="floating_password" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+        <label for="floating_password" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Password</label>
+        @if (employeeRegForm.controls.password.invalid && employeeRegForm.controls.password.touched) {
+          @if (employeeRegForm.controls.password.hasError('required')) {
+            <p class="mt-1 text-xs text-red-600">Password is required.</p>
+          }
+        }
+    </div>
+    <!-- <div class="relative z-0 w-full mb-5 group">
+        <input type="password" name="repeat_password" id="floating_repeat_password" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+        <label for="floating_repeat_password" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Confirm password</label>
+    </div> -->
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+          <input formControlName="firstName" type="text" name="floating_first_name" id="floating_first_name" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+          <label for="floating_first_name" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">First name</label>
+          @if (employeeRegForm.controls.firstName.invalid && employeeRegForm.controls.firstName.touched) {
+            @if (employeeRegForm.controls.firstName.hasError('required')) {
+              <p class="mt-1 text-xs text-red-600">First name is required.</p>
+            }
+            @if (employeeRegForm.controls.firstName.hasError('noSpaceAllowed')) {
+                <p class="mt-1 text-xs text-red-600">First name ican not have space.</p>
+              }
+          }
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+          <input formControlName="lastName" type="text" name="floating_last_name" id="floating_last_name" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+          <label for="floating_last_name" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Last name</label>
+          @if (employeeRegForm.controls.lastName.invalid && employeeRegForm.controls.lastName.touched) {
+            @if (employeeRegForm.controls.lastName.hasError('required')) {
+              <p class="mt-1 text-xs text-red-600">Last name is required.</p>
+            }
+          }
+      </div>
+    </div>
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+          <input formControlName="phNo" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone" id="floating_phone" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+          <label for="floating_phone" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Phone number</label>
+          @if (employeeRegForm.controls.phNo.invalid && employeeRegForm.controls.phNo.touched) {
+            @if (employeeRegForm.controls.phNo.hasError('required')) {
+              <p class="mt-1 text-xs text-red-600">Phone number is required.</p>
+            } @else if (employeeRegForm.controls.phNo.hasError('pattern')) {
+              <p class="mt-1 text-xs text-red-600">Phone number must be in the format 123-456-7890.</p>
+            }
+          }
+      </div>
+      <div class="relative z-0 w-full mb-5 group">
+          <input formControlName="company" type="text" name="floating_company" id="floating_company" class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer" placeholder=" " required />
+          <label for="floating_company" class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">Company (Ex. Google)</label>
+          @if (employeeRegForm.controls.company.invalid && employeeRegForm.controls.company.touched) {
+            @if (employeeRegForm.controls.company.hasError('required')) {
+              <p class="mt-1 text-xs text-red-600">Company is required.</p>
+            }
+          }
+      </div>
+    </div>
+    <button type="submit" class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 focus:outline-none shadow-xs font-medium leading-5 rounded-lg text-sm px-4 py-2.5 transition-colors">Submit</button>
+  </form>
+</div>
