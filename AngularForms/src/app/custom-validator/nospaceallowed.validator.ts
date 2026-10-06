@@ -1,8 +1,13 @@
+import { consumerDestroy } from "@angular/core/primitives/signals";
 import { AbstractControl, FormControl } from "@angular/forms";
 
-export const noSpaceAllowed = (control:AbstractControl) =>{
-    if(control.value != null && control.value.indexOf(' ') !== -1){
-        return {noSpaceAllowed:true} // invalid
+
+
+export class CustuomValidator {
+    static noSpaceAllowed(control: AbstractControl) {
+        if (control.value != null && control.value.indexOf(' ') !== -1) {
+            return { noSpaceAllowed: true } // invalid
+        }
+        return null; //validated
     }
-    return null; //validated
 }

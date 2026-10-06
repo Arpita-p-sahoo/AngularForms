@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { noSpaceAllowed } from '../nospaceallowed.validator';
+import { CustuomValidator } from '../nospaceallowed.validator';
 
 @Component({
   selector: 'app-nospace-custom-validation',
@@ -13,7 +13,7 @@ export class NospaceCustomValidation {
   employeeRegForm = new FormGroup({
     email:new FormControl('',Validators.required),
     password:new FormControl('',Validators.required),
-    firstName:new FormControl('',[Validators.required,noSpaceAllowed]),
+    firstName:new FormControl('',[Validators.required,CustuomValidator.noSpaceAllowed]),
     lastName:new FormControl('',Validators.required),
     phNo:new FormControl('',Validators.required),
     company: new FormControl('',Validators.required)
