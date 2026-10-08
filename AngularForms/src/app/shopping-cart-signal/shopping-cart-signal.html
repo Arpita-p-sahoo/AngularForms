@@ -1,0 +1,65 @@
+<div
+    class="max-w-md mx-auto my-8 p-5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+    <div class="flex items-center gap-4">
+        <!-- Item Image -->
+        <div class="relative w-24 h-24 shrink-0 overflow-hidden rounded-xl bg-gray-50 border border-gray-100">
+            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80"
+                alt="Smart Watch" class="w-full h-full object-cover object-center" />
+        </div>
+
+        <!-- Item Details & Controls -->
+        <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between gap-2">
+                <div>
+                    <h3 class="text-base font-semibold text-gray-900 truncate">Series 8 Smart Watch</h3>
+                    <p class="text-xs text-gray-500 mt-0.5">Space Gray • 45mm</p>
+                </div>
+                <!-- Remove Button -->
+                <button type="button" class="text-gray-400 hover:text-red-500 transition-colors p-1"
+                    title="Remove item">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Unit Price -->
+            <div class="mt-2 text-xs text-gray-500">
+                Unit Price: <span class="font-medium text-gray-700">$<span id="unit-price">{{itemPrice()}}</span></span>
+            </div>
+
+            <!-- Quantity Stepper & Subtotal -->
+            <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+                <!-- Increase / Decrease Stepper -->
+                <div class="inline-flex items-center rounded-lg border border-gray-200 bg-gray-50 p-1">
+                    <button id="btn-decrease" type="button" (click)="decreaseQuantity()"
+                        class="w-7 h-7 flex items-center justify-center rounded-md bg-white text-gray-600 shadow-xs hover:bg-gray-100 active:scale-95 transition"
+                        aria-label="Decrease quantity">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4" />
+                        </svg>
+                    </button>
+
+                    <span id="qty" class="w-8 text-center text-sm font-semibold text-gray-800 select-none">{{cartQuantity()}}</span>
+
+                    <button id="btn-increase" type="button" (click)="increaseQuantity()"
+                        class="w-7 h-7 flex items-center justify-center rounded-md bg-white text-gray-600 shadow-xs hover:bg-gray-100 active:scale-95 transition"
+                        aria-label="Increase quantity">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Total Price -->
+                <div class="text-right">
+                    <span class="block text-[11px] uppercase tracking-wider text-gray-400 font-medium">Total</span>
+                    <span class="text-base font-bold text-gray-900">$<span id="total-price">{{total()}} </span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
